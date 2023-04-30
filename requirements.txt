@@ -4,5 +4,5 @@ pandas==1.3.3
 requests==2.26.0
 xgboost==1.7.5
 uvicorn==0.15.0
-joblib==1.1.0
+joblib==1.1.1
 scikit-learn==1.2.2
