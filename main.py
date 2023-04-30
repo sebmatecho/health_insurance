@@ -16,7 +16,7 @@ import joblib
 
 # Load pre-trained model
 home_path = Path.cwd()
-model_path = home_path /'models'/'models'/ 'xgboost_finetuned.pkl'
+model_path = home_path /'models'/'models'/ 'logistic_regression.pkl'
 model = joblib.load(model_path)
 
 # Define the FastAPI app
