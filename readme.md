@@ -25,4 +25,4 @@ The model used in this project is an XGBoost model that was fine-tuned using a B
 ## API
 The model was deployed through a FastAPI API that is hosted on AWS Lambda. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest, and the tests are included in the repository.
 
-<img src="models/figures/xgboost_finetuned.png" width="600" height="4300" />
+<img src="models/figures/xgboost_finetuned.png" width="600" height="300" />
