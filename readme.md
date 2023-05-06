@@ -36,6 +36,6 @@ The general overview for the deployment of this project is presented as follows:
 
 ## Demo
 
-<img src="cross_sell_demo.gif" width="600" height="380" />
+<img src="cross_sell_demo.gif" width="660" height="418" />
 
 
