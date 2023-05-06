@@ -7,17 +7,21 @@ The objective of this project is to develop a ranking model to predict the proba
 ## Data
 The data used for this project was obtained from the insurance company's database and contains information about existing customers who were targeted in previous cross-selling campaigns. The dataset includes the following variables:
 
-- Gender
-- Age
-- Driving License
-- Region Code
-- Previously Insured
-- Vehicle Age
-- Vehicle Damage
-- Annual Premium
-- Policy Sales Channel
-- Vintage
-- Response (target variable)
+- Gender: Gender of the customer
+- Age: Age of the customer
+- Driving License: 0 (Customer does not have DL), 1 (Customer already has DL)
+- Region Code: Unique code for the region of the customer
+- Previously Insured: 1 (Customer already has Vehicle Insurance), 0 (Customer doesn't have Vehicle Insurance)
+- Vehicle Age: Age of the Vehicle
+- Vehicle Damage: 1 (Customer got his/her vehicle damaged in the past), 0 (Customer didn't get his/her vehicle damaged in the past)
+- Annual Premium: The amount customer needs to pay as premium in the year
+- Policy Sales Channel: Anonymized Code for the channel of outreaching to the customer ie. Different Agents, Over Mail, Over Phone, In Person, etc.
+- Vintage: Number of Days, Customer has been associated with the company
+
+For training data, the target variable was given by
+- Response (target variable): 	1 (Customer is interested), 0 (Customer is not interested)
+
+
 
 ## Model
 The model used in this project is an XGBoost model that was fine-tuned using a Bayesian optimization approach. The model was trained on the historical data obtained from previous campaigns, and the output is a ranking score that ranks the customers by their probability of purchase.
