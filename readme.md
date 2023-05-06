@@ -32,10 +32,10 @@ The model was deployed through a FastAPI API that is hosted on AWS Lambda. The A
 
 The general overview for the deployment of this project is presented as follows: 
 
-<img src="project_architecture.png" width="600" height="300" />
+<img src="project_architecture.png" width="600" height="400" />
 
 ## Demo
 
-<img src="cross_sell_demo.gif" width="600" height="300" />
+<img src="cross_sell_demo.gif" width="600" height="400" />
 
 
