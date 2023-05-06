@@ -52,5 +52,5 @@ class HealthInsurance():
     
     def prediction(self,model, df4, df5): 
         pred = model.predict_proba(df4)
-        df5['prediction'] = pred[:, 0]
+        df5['score'] = pred[:, 0]
         return df5
