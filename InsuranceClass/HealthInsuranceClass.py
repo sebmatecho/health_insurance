@@ -2,10 +2,6 @@ import pandas as pd
 import pickle
 import os
 from  pathlib import Path
-import pandas as pd
-from pathlib import Path
-import pickle 
-import os
 
 class HealthInsurance(): 
     def __init__(self)->None:

@@ -6,3 +6,4 @@ uvicorn==0.15.0
 joblib==1.1.1
 scikit-learn==1.2.2
 xgboost==1.7.5
+pandas-profiling==3.6.6

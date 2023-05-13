@@ -19,17 +19,17 @@ The data used for this project was obtained from the insurance company's databas
 - Vintage: Number of Days, Customer has been associated with the company
 
 For training data, the target variable was given by
-- Response (target variable): 	1 (Customer is interested), 0 (Customer is not interested)
+- Response:  1 (Customer is interested), 0 (Customer is not interested)
 
 
 
 ## Model
 The model used in this project is an XGBoost model that was fine-tuned using a Bayesian optimization approach. The model was trained on the historical data obtained from previous campaigns, and the output is a ranking score that ranks the customers by their probability of purchase.
 
+<img src="models/figures/xgboost_finetuned.png" width="600" height="300" />
+
 ## API
 The model was deployed through a FastAPI API that is hosted on AWS Lambda. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest, and the tests are included in the repository.
-
-<img src="models/figures/xgboost_finetuned.png" width="600" height="300" />
 
 
 ## Project Deployment
