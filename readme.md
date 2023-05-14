@@ -3,21 +3,22 @@
 
 This repository contains all materials developed for the Insurance Cross-selling Ranking project. This aims to be an end-to-end data product intended to showcase data science skills. 
 
-## Overview 
+## Business Context 
 
-A marketing campaing aiming to increase cross-sell rates within an insurance company is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. During the first iteration of such campaing, data pieces involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end result for this campaing, were collected. The insurance company is interested in better targeting potential clients based on what was learnt. Being able to prioritize clients would be of tremendous use to the managers as communication strategy can be adjusted accordingly leading to optimized business model and revenue.  
+A marketing campaing aiming to increase cross-sell rates within an insurance company is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. During the first iteration of such campaing, data pieces involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end result for this campaing, were collected. The insurance company is interested in better targeting potential clients based on what was learnt for later iterations of such campaing. 
 
-This project proposes an automatic way to rank clients on next iterations of such campaing. The implementation of the this proposal would imply that reaching the top 20% of the ranked clients will lead to the 90% of the expected outcome of the entire campaign. This is, campaing costs are reduced by about 80%.
+## Project Objective
+
+This project proposes an automatic way to rank clients on next iterations of such campaing, sorting them by likelihood of being interested in the product. The implementation of the this proposal would imply that reaching the top 20% of the ranked clients will lead to the 90% of the expected outcome of the entire campaign. Being able to prioritize clients would be of tremendous use to the managers as communication strategy can be adjusted accordingly leading to optimized business model, resources usage and revenue.  
 
 ## Bussiness Impact
 
-As described above, the context implies carrying out a marketing campaign. Let us assume these assumptions: 
+As described above, business context implies carrying out a marketing campaign. Let us assume these assumptions: 
 - 1M clients are to be reached telephonically to be told about the product
-- all clients are expected to be reached
 - average of 12 calls per hour per agent
 - average agent salary 20 USD/hour 
 
-In such cases **The estimate cost of such campaing without using our solution is about $1.6M USD. The estimate cost using our solution is about $330K USD.**
+In such cases **The estimate cost of such campaing without using our solution is about $1.6M USD. The estimate cost using our solution is about $330K USD**. This is, campaing costs are reduced by about 80%.
 
 ## Demo
 
@@ -36,7 +37,7 @@ Once pasted, hit the *Sebmatecho* menu and select the *Get Prediction* option. Y
 <img src="cross_sell_demo.gif" width="660" height="418" />
 
 ## Data
-The data used for this project was obtained from Kaggle (description and further details available [here](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction)) and it involves a insurance company's database and contains information about existing customers who were targeted in previous cross-selling campaigns. The dataset includes the following variables:
+The data used for this project was obtained from Kaggle (description and further details available [here](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction)) and it involves an insurance company's database containing information about existing customers who were targeted in the first iteration of cross-selling campaign. The dataset includes the following variables:
 
 - Gender: Gender of the customer
 - Age: Age of the customer
