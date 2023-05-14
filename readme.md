@@ -15,7 +15,7 @@ Under the following assumptions:
 
 This is an end-to-end data project aiming to propose a ranking model developed to assist decision making in such campaing. The project was entirely developed using Python. A bayesian fined tuned XGBoost model (predicting the probability of clients being interested in the product) was deployed through a FastAPI API hosted on Render is available to use in a google sheets spreadsheet. According to obtained results, this model should be able to rank (prioritize) clients in a way that reaching the top 20% of the database lead to 90% of the expected outcome of the entire campaign, and thus reducing campaing costs by 80%. 
 
-**The estimate cost of such campaing using this approach is about $330K CAD **
+**The estimate cost of such campaing using the proposed solution approach is about $330K USD**
 ## Demo
 
 If the Google Apps Script API is enabled in your gmail account settings, you are more than welcome to try it out [here](https://docs.google.com/spreadsheets/d/1WUQPmwvzYX_OY9WIVluOEKeaUD4erhhSXdbbLip4ElY/edit?usp=sharing). Please, be mindful that the API was deployed on a free tier resources, so it might take a while (30-60 secs). 
@@ -58,13 +58,12 @@ The model used in this project is an XGBoost model that was fine-tuned using a B
 
 Also, assuming a traditional threshold of 0.5, this model can be seen as a classification model, so [ROC and AUC](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=en) metrics are also used (and thus these were the initial assessment method on Kaggle's original competition). 
 
-The selected model performed consistently higher on all considered metrics (metrics for other considered models are available on notebooks)
+The selected model performed consistently higher on all considered metrics (metrics for other considered models are available on notebooks) and thus was selected for deployment. 
 
 <img src="models/figures/xgboost_finetuned.png" width="900" height="300" />
 
 ## API
-The model was deployed through a FastAPI API that is hosted on AWS Lambda. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest, and the tests are included in the repository.
-
+The model was deployed through a FastAPI API that is hosted on Render. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest. Tests are still to be included in the repository.
 
 ## Project Deployment
 
