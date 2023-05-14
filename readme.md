@@ -2,7 +2,7 @@
 
 ## Abstract 
 
-Whitin an insurance company, a marketing campaing aiming to increase cross-sell rates is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. Data involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end result for this campaing; was collected during the initial iteration of it. The insurance company is interested in better targeting the potential clients based on what was learnt during such first iteration. Being able to prioritize clients would be of tremendous use to the managers as communication strategy can be adjusted accordingly leading to optimized business model and revenue.  
+Within an insurance company, a marketing campaing aiming to increase cross-sell rates is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. Data involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end result for this campaing; was collected during the initial iteration of it. The insurance company is interested in better targeting the potential clients based on what was learnt during such first iteration. Being able to prioritize clients would be of tremendous use to the managers as communication strategy can be adjusted accordingly leading to optimized business model and revenue.  
 
 Under the following assumptions: 
 - 1M clients are to be reached telephonically to be told about the product
