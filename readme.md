@@ -58,9 +58,20 @@ The model used in this project is an XGBoost model that was fine-tuned using a B
 
 Also, assuming a traditional threshold of 0.5, this model can be seen as a classification model, so [ROC and AUC](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=en) metrics are also used (and thus these were the initial assessment method on Kaggle's original competition). 
 
-The selected model performed consistently higher on all considered metrics (metrics for other considered models are available on notebooks) and thus was selected for deployment. 
+The selected model performed consistently higher on all considered metrics and thus was selected for deployment. 
 
 <img src="models/figures/xgboost_finetuned.png" width="900" height="300" />
+
+Other considered models: 
+
+#### XGboost (baseline)
+<img src="models/figures/xgboost.png" width="900" height="300" />
+
+#### Knn 
+<img src="models/figures/knn.png" width="900" height="300" />
+
+#### Logistic Regression
+<img src="models/figures/logistic_regression.png" width="900" height="300" />
 
 ## API
 The model was deployed through a FastAPI API that is hosted on Render. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest. Tests are still to be included in the repository.
