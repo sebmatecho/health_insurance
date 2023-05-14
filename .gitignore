@@ -16,7 +16,6 @@ pyvenv.cfg
 .env
 .ipynb_checkpoints
 .zip
-*.ipynb
 pip-selfcheck.json
 
 # End of https://www.toptal.com/developers/gitignore/api/venv
