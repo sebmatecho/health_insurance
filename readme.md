@@ -1,21 +1,24 @@
-# Insurance Cross-selling Ranking Model
+# Insurance Cross-selling Ranking Project
+#### Proposed by [Sébastien Lozano-Forero](https://www.linkedin.com/in/sebastienlozanoforero/).
 
-## Abstract 
+This repository contains all materials developed for the Insurance Cross-selling Ranking project. This aims to be an end-to-end data product intended to showcase data science skills. 
 
-Within an insurance company, a marketing campaing aiming to increase cross-sell rates is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. Data involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end result for this campaing; was collected during the initial iteration of it. The insurance company is interested in better targeting the potential clients based on what was learnt during such first iteration. Being able to prioritize clients would be of tremendous use to the managers as communication strategy can be adjusted accordingly leading to optimized business model and revenue.  
+## Overview 
 
-Under the following assumptions: 
+A marketing campaing aiming to increase cross-sell rates within an insurance company is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. During the first iteration of such campaing, data pieces involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end result for this campaing, were collected. The insurance company is interested in better targeting potential clients based on what was learnt. Being able to prioritize clients would be of tremendous use to the managers as communication strategy can be adjusted accordingly leading to optimized business model and revenue.  
+
+This project proposes an automatic way to rank clients on next iterations of such campaing. The implementation of the this proposal would imply that reaching the top 20% of the ranked clients will lead to the 90% of the expected outcome of the entire campaign. This is, campaing costs are reduced by about 80%.
+
+## Bussiness Impact
+
+As described above, the context implies carrying out a marketing campaign. Let us assume these assumptions: 
 - 1M clients are to be reached telephonically to be told about the product
 - all clients are expected to be reached
 - average of 12 calls per hour per agent
 - average agent salary 20 USD/hour 
 
+In such cases **The estimate cost of such campaing without using our solution is about $1.6M USD. The estimate cost using our solution is about $330K USD.**
 
-**The estimate cost of such campaing is about $1.6M USD**
-
-This is an end-to-end data project aiming to propose a ranking model developed to assist decision making in such campaing. The project was entirely developed using Python. A bayesian fined tuned XGBoost model (predicting the probability of clients being interested in the product) was deployed through a FastAPI API hosted on Render is available to use in a google sheets spreadsheet. According to obtained results, this model should be able to rank (prioritize) clients in a way that reaching the top 20% of the database lead to 90% of the expected outcome of the entire campaign, and thus reducing campaing costs by 80%. 
-
-**The estimate cost of such campaing using the proposed solution approach is about $330K USD**
 ## Demo
 
 If the Google Apps Script API is enabled in your gmail account settings, you are more than welcome to try it out [here](https://docs.google.com/spreadsheets/d/1WUQPmwvzYX_OY9WIVluOEKeaUD4erhhSXdbbLip4ElY/edit?usp=sharing). Please, be mindful that the API was deployed on a free tier resources, so it might take a while (30-60 secs). 
@@ -28,13 +31,9 @@ Female	69	1	28	0	1-2 Year	Yes	25126	124	98
 Male	23	1	26	0	< 1 Year	Yes	46132	160	180
 ```
 
-Once pasted, hit the *Sebmatecho* menu and select the *Get Prediction* option. You will get a predicted probability for such person to be interested into the producted being prometed. 
+Once pasted, hit the *Sebmatecho* menu and select the *Get Prediction* option. You will get a predicted probability for such person to be interested into the producted being promoted. 
 
 <img src="cross_sell_demo.gif" width="660" height="418" />
-
-## Objective
-
-The objective of this project is to develop a ranking model to predict the probability of purchase of new clients in a marketing campaign to cross-sell an insurance product to existing customers. The model is trained on historical data obtained from previous campaigns, and the output is a ranking score that ranks the customers by their probability of purchase.
 
 ## Data
 The data used for this project was obtained from Kaggle (description and further details available [here](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction)) and it involves a insurance company's database and contains information about existing customers who were targeted in previous cross-selling campaigns. The dataset includes the following variables:
@@ -67,9 +66,21 @@ The model was deployed through a FastAPI API that is hosted on Render. The API a
 
 ## Project Deployment
 
-The general overview for the deployment of this project is presented as follows: 
+A bayesian fined tuned XGBoost model (predicting the probability of clients being interested in the product) was deployed through a FastAPI API hosted on Render and is available to use on a google sheets spreadsheet. 
+
+The general overview and some of the technologies used for deploying this project is presented as follows: 
 
 <img src="project_architecture.png" width="600" height="400" />
+
+ 
+## Future work
+
+This project could use the following steps for a next iteration: 
+
+- Writing test for the API functionalities and the InsuranceClass class
+- Propose ranking models based in neuronal networks
+- Expand the API usage to allow final user to select model to be used
+- Develop infrastructure for seasonal retraining of the model with fresh data
 
 
 
