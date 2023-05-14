@@ -1,6 +1,7 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import scikitplot as skplt
+from sklearn import metrics
 import os
 import pickle
 from pathlib import Path
@@ -8,32 +9,41 @@ from pathlib import Path
 
 
 def model_figures(y_target: pd.Series,
+                  X_pred:pd.DataFrame,
                   y_pred: pd.Series, 
-                  model_name: str): 
+                  model_name: str, 
+                  model): 
     """Creates Cumulative Gain and Lift curves figures (good for ranking metrics)
       
       Args:
           y_target (pd.Series): Target variable
+          X_pred (pd.DataFrame): Target dataframe
           y_pred (pd.Series): predicted values
           model_name (str): Model Name
+          model: model instance
       
       Returns:
           a 2x1 figure displaying matplotlib figures
       
       Example usage:
-          model_figures(y_target= y_val,
-                        y_pred= yhat_knn, 
-                        model_name ='K-nearest neighboors')
+          model_figures(y_target = y_val,
+                        X_pred = X_pred,           
+                        y_pred = yhat_knn, 
+                        model_name = 'K-nearest neighboors'
+                        model = model)
           
     """
     # create a 1 row, 2 column subplot
-    fig, ax = plt.subplots(1, 2, figsize=(10, 5))
+    fig, ax = plt.subplots(1, 3, figsize=(21, 7))
     
     # plot the cumulative gain curve on the left
     skplt.metrics.plot_cumulative_gain(y_target, y_pred, ax=ax[0])
     
     # plot the lift curve on the right
     skplt.metrics.plot_lift_curve(y_target, y_pred, ax=ax[1])
+
+    #plot ROC curve
+    skplt.metrics.plot_roc_curve(y_target, y_pred, ax=ax[2])
     
     # set some titles and labels
     ax[0].set_title('Cumulative Gain Curve: '+model_name)
@@ -43,6 +53,9 @@ def model_figures(y_target: pd.Series,
     ax[1].set_xlabel('Percentage of sample')
     ax[1].set_ylabel('Lift')
     ax[1].legend(loc='upper right')
+    ax[2].set_title('ROC Curve: '+model_name)
+    ax[2].set_xlabel('False Positive Rate (FPR)')
+    ax[2].set_ylabel('True Positive Rate (TPR)')
     
     return fig;
 
@@ -115,8 +128,10 @@ def model_assessment(models: dict,
         
         # Exporting figure
         fig = model_figures(y_target= y_test,
+                            X_pred = x_test,
                             y_pred= y_proba, 
-                            model_name = name)
+                            model_name = name, 
+                            model = model)
         
         fig.savefig(file_name_fig, dpi=300, bbox_inches='tight', pad_inches=0.2)
         print(f'[Info] {name} results exported successfully')

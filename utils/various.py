@@ -9,7 +9,7 @@ def load_credentials():
         None
     
     Returns:
-        sets of credentials
+        dictionaries with credentials within. 
 
     Example usage:
         rds_credentials, s3_credentials = load_credentials()
