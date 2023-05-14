@@ -34,7 +34,7 @@ Male	23	1	26	0	< 1 Year	Yes	46132	160	180
 
 Once pasted, hit the *Sebmatecho* menu and select the *Get Prediction* option. You will get a predicted probability for such person to be interested into the producted being promoted. 
 
-<img src="cross_sell_demo.gif" width="660" height="418" />
+<img src="img/cross_sell_demo.gif" width="660" height="418" />
 
 ## Data
 The data used for this project was obtained from Kaggle (description and further details available [here](https://www.kaggle.com/datasets/anmolkumar/health-insurance-cross-sell-prediction)) and it involves an insurance company's database containing information about existing customers who were targeted in the first iteration of cross-selling campaign. The dataset includes the following variables:
@@ -71,7 +71,7 @@ A bayesian fined tuned XGBoost model (predicting the probability of clients bein
 
 The general overview and some of the technologies used for deploying this project is presented as follows: 
 
-<img src="project_architecture.png" width="600" height="400" />
+<img src="img/project_architecture.png" width="600" height="400" />
 
  
 ## Future work

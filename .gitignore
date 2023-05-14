@@ -12,6 +12,7 @@
 [Ll]ocal
 [Ss]cripts
 pyvenv.cfg
+__pycache__
 .venv
 .env
 .ipynb_checkpoints
