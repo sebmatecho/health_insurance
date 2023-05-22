@@ -179,7 +179,7 @@ def upload_class_data_AWS_S3(df: pd.DataFrame,
 
     # Selection model 
     model_name_aux = model_name+'.pkl'
-    model_path = Path.cwd() /'models'/'models'/ model_name_aux
+    model_path = Path.cwd().parent /'models'/'models'/ model_name_aux
     model = joblib.load(model_path)
 
     # Data prediction and data upload

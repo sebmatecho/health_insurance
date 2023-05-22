@@ -5,7 +5,8 @@ from  pathlib import Path
 
 class HealthInsurance(): 
     def __init__(self)->None:
-        base_path = Path.cwd()
+        base_path = Path.cwd().parent
+        # print(base_path)
         self.home = base_path/'parameters'
         self.age_transform = pickle.load(open(os.path.join(self.home,'age_transform.pkl'),'rb'))
         self.annual_premium_transform = pickle.load(open(os.path.join(self.home,'annual_premium_transform.pkl'),'rb'))

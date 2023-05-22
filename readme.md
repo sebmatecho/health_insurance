@@ -5,13 +5,13 @@ This repository contains all materials developed for the Insurance Cross-selling
 
 ## Business Context 
 
-A marketing campaing aiming to increase cross-sell rates within an insurance company is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. During the first iteration of such campaing, data pieces involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end result for this campaing, were collected. The insurance company is interested in better targeting potential clients based on what was learnt for later iterations of such campaing. 
+A marketing campaing aiming to increase cross-sell rates within an insurance company is going to be held. The featuring product for such campaing is vehicle insurance and is expected to target current life insurace policyholders. During the first iteration of such campaing, data pieces involving demographics (gender, age, region), Vehicles (Vehicle Age, Damage), Policy (Premium, sourcing channel) and of course, end output for this campaing (customer is interested or not), were collected. Converstion Rate for the campaing was about 12%, so it makes sense to assume that the company is interested on a second iteration and thus there is room for improvement based on what was learnt. 
 
 ## Project Objective
 
 This project proposes an automatic way to rank clients on next iterations of such campaing, sorting them by likelihood of being interested in the product. The implementation of the this proposal would imply that reaching the top 20% of the ranked clients will lead to the 90% of the expected outcome of the entire campaign. Being able to prioritize clients would be of tremendous use to the managers as communication strategy can be adjusted accordingly leading to optimized business model, resources usage and revenue.  
 
-## Bussiness Impact
+## Business Impact
 
 As described above, business context implies carrying out a marketing campaign. Let us assume these assumptions: 
 - 1M clients are to be reached telephonically to be told about the product
@@ -72,6 +72,16 @@ Other considered models:
 
 #### Logistic Regression
 <img src="models/figures/logistic_regression.png" width="900" height="300" />
+
+## Model Understanding
+#### Model Summary Plot
+<img src="SHAP/summary_plot.png" width="800" height="300" />
+
+#### Model Intuition
+<img src="SHAP/plots.png" width="800" height="300" />
+
+#### Model Individual Interpration
+<img src="SHAP/waterfall.png" width="800" height="300" />
 
 ## API
 The model was deployed through a FastAPI API that is hosted on Render. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest. Tests are still to be included in the repository.

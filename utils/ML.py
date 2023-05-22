@@ -90,7 +90,9 @@ def model_assessment(models: dict,
                             destination_models = 'models')
     """
     # Creating directory to save figures
-    root_path = os.path.join('models',destination_figures)
+    models_main_path = Path.cwd().parent / 'models'
+    
+    root_path = os.path.join(models_main_path, destination_figures)
     figures_path = Path(root_path)
     if figures_path.exists():
         print(f'[Info] Path {figures_path} already exists.')
@@ -99,7 +101,7 @@ def model_assessment(models: dict,
         print(f'[Info] Path{figures_path} created.')
     
     # Creating directory to save trained models
-    root_path = os.path.join('models',destination_models)
+    root_path = os.path.join(models_main_path,destination_models)
     models_path = Path(root_path)
     if models_path.exists():
         print(f'[Info] Path {models_path} already exists.')
