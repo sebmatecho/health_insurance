@@ -75,13 +75,13 @@ Other considered models:
 
 ## Model Understanding
 #### Model Summary Plot
-<img src="SHAP/summary_plot.png" width="800" height="300" />
+<img src="SHAP/summary_plot.png" width="700" height="300" />
 
 #### Model Intuition
-<img src="SHAP/plots.png" width="800" height="300" />
+<img src="SHAP/plots.png" width="700" height="300" />
 
 #### Model Individual Interpration
-<img src="SHAP/waterfall.png" width="800" height="300" />
+<img src="SHAP/waterfall.png" width="700" height="300" />
 
 ## API
 The model was deployed through a FastAPI API that is hosted on Render. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest. Tests are still to be included in the repository.
