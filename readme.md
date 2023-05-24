@@ -58,7 +58,7 @@ The model used in this project is an XGBoost model that was fine-tuned using a B
 
 Also, assuming a traditional threshold of 0.5, this model can be seen as a classification model, so [ROC and AUC](https://developers.google.com/machine-learning/crash-course/classification/roc-and-auc?hl=en) metrics are also used (and thus these were the initial assessment method on Kaggle's original competition). 
 
-The selected model performed consistently higher on all considered metrics and thus was selected for deployment. 
+The selected model performed consistently higher on all considered metrics and thus was selected for deployment.
 
 <img src="models/figures/xgboost_finetuned.png" width="900" height="300" />
 
@@ -74,11 +74,21 @@ Other considered models:
 <img src="models/figures/logistic_regression.png" width="900" height="300" />
 
 ## Model Understanding
-#### Model Summary Plot
-<img src="SHAP/summary_plot.png" width="600" height="300" />
+
+Being mindful that every model is an approximation of reality instead of the reality itself, it should be stated that most interpretations we can make out of a model, would apply to used model, rather than the target features true nature (George Box would say: every model is wrong, but ... ). Still, is of value to listen what good models have to say about data and the observed relations between features as such suggestions, when used with data expertise, lead to great empirical understanding of data (... some are useful).
+
+
+As a way to ease the interaction with the selected model while providing some intuition about the variables, the [`SHAP`](https://shap.readthedocs.io/en/latest/index.html) (SHapley Additive exPlanations) library was used. Such library is a great resource for further understanding the model's inner behaviour, opposing the black-box approach where users will are only left with a prediction with not much explanation. Such library computes [Shapley Values](https://en.wikipedia.org/wiki/Shapley_value) in a [Cooperative Game Theory](https://en.wikipedia.org/wiki/Cooperative_game_theory) framework to approximate the credit to be allocated to each feature. 
 
 #### Model Intuition
+
+For the deployed model, variables *previously insured* and *vehicle damage*, are the most important features. The bars are based on average absolute values of SHAP values, this is, the mean impact of each feature across the +700K rows of the original database.
 <img src="SHAP/plots.png" width="600" height="300" />
+
+This is also reflected by the Beeswarm plot, cleary showing two clusters for each of the *previously insured* and *vehicle damage* features. This is 
+
+<img src="SHAP/summary_plot.png" width="600" height="300" />
+
 
 #### Model Individual Interpration
 <img src="SHAP/waterfall.png" width="600" height="300" />
