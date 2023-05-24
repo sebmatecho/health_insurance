@@ -83,9 +83,10 @@ As a way to ease the interaction with the selected model while providing some in
 #### Model Intuition
 
 For the deployed model, variables *previously insured* and *vehicle damage*, are the most important features. The bars are based on average absolute values of SHAP values, this is, the mean impact of each feature across the +700K rows of the original database.
+
 <img src="SHAP/plots.png" width="600" height="300" />
 
-This is also reflected by the Beeswarm plot, cleary showing two clusters for each of the *previously insured* and *vehicle damage* features. This is 
+This is also reflected by the Beeswarm plot, cleary showing two clusters for each of the *previously insured* and *vehicle damage* features. So, it seems that 
 
 <img src="SHAP/summary_plot.png" width="600" height="300" />
 
