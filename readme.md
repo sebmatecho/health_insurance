@@ -32,7 +32,7 @@ Female	69	1	28	0	1-2 Year	Yes	25126	124	98
 Male	23	1	26	0	< 1 Year	Yes	46132	160	180
 ```
 
-Once pasted, hit the *Sebmatecho* menu and select the *Get Prediction* option. You will get a predicted probability for such person to be interested into the producted being promoted. 
+Once pasted, hit the *Sebmatecho* buttom on menu and select the *Get Prediction* option. You will get a predicted probability for such person to be interested into the producted being promoted. 
 
 <img src="img/cross_sell_demo.gif" width="750" height="180" />
 
@@ -55,7 +55,7 @@ For training data, the target variable was given by
 
 
 ## Variable selection
-A random forest was used to select the most relevant features for this project. The main idea is that every feature would contribute to the impurity, the more a feature decreases the impurity, the more important the feature is. According to the 
+A random forest was used to select the most relevant features for this project. The main idea is that every feature would contribute to the impurity, the more a feature decreases the impurity, the more important the feature is. According to the model, the variables vintage, annual_premium, age, region_code, sales_channel, vehiche_damage and vehicle_age were to be considered. Thus, such variables were used for this iteration of the project. 
 
 <img src="parameters/feature_importance.png" width="430" height="400" />
 
