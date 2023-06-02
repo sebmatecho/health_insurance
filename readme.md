@@ -55,7 +55,7 @@ For training data, the target variable was given by
 
 
 ## Variable selection
-A random forest was used to select the most relevant features for this project. The 
+A random forest was used to select the most relevant features for this project. The main idea is that every feature would contribute to the impurity, the more a feature decreases the impurity, the more important the feature is. According to the 
 
 <img src="parameters/feature_importance.png" width="430" height="400" />
 
