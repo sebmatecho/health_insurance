@@ -57,7 +57,7 @@ For training data, the target variable was given by
 ## Variable selection
 A random forest was used to select the most relevant features for this project. The 
 
-<img src="parameters/feature_importance.png" width="400" height="300" />
+<img src="parameters/feature_importance.png" width="400" height="400" />
 
 ## Model
 The model used in this project is an XGBoost model that was fine-tuned using a Bayesian optimization approach. The model was trained on the historical data obtained from previous campaigns, and the output is a ranking score that ranks the customers by their probability of purchase. As the main problem is to sort the list of clients the metrics [Cumulative Gain Curve](http://mlwiki.org/index.php/Cumulative_Gain_Chart) and [Lift Curves](https://www.geeksforgeeks.org/understanding-gain-chart-and-lift-chart/) were used to assess model performance. 
