@@ -32,9 +32,12 @@ def statistical_summary(dataframe: pd.DataFrame):
     d5 = pd.DataFrame( num_attributes.apply( lambda x: x.skew() ) ).T 
     d6 = pd.DataFrame( num_attributes.apply( lambda x: x.kurtosis() ) ).T 
     
+    # coefficient of variation
+    cv1 = d1/ct1
+    
     # Putting all together
-    m = pd.concat( [d2, d3, d4, ct1, ct2, d1, d5, d6] ).T.reset_index()
-    m.columns = ['attributes', 'min', 'max', 'range', 'mean', 'median', 'std', 'skew', 'kurtosis']
+    m = pd.concat( [d2, d3, d4, ct1, ct2, d1, d5, d6,cv1] ).T.reset_index()
+    m.columns = ['attributes', 'min', 'max', 'range', 'mean', 'median', 'std', 'skew', 'kurtosis', 'var_coef']
     return m; 
 
 def correlation_matrix(dataframe:pd.DataFrame):

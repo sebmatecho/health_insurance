@@ -13,7 +13,7 @@ def model_figures(y_target: pd.Series,
                   y_pred: pd.Series, 
                   model_name: str, 
                   model): 
-    """Creates Cumulative Gain and Lift curves figures (good for ranking metrics)
+    """Creates Cumulative Gain, Lift curves figures (good for ranking metrics) and ROC curve (original assessment metric)
       
       Args:
           y_target (pd.Series): Target variable
@@ -23,7 +23,7 @@ def model_figures(y_target: pd.Series,
           model: model instance
       
       Returns:
-          a 2x1 figure displaying matplotlib figures
+          a 3x1 figure displaying matplotlib figures
       
       Example usage:
           model_figures(y_target = y_val,
@@ -136,6 +136,6 @@ def model_assessment(models: dict,
                             model = model)
         
         fig.savefig(file_name_fig, dpi=300, bbox_inches='tight', pad_inches=0.2)
-        print(f'[Info] {name} results exported successfully')
+        print(f'[Info] {name} results exported successfully (model no. {i})')
         
     return None;

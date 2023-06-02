@@ -164,7 +164,7 @@ def upload_class_data_AWS_S3(df: pd.DataFrame,
                                     aws_access_key_id = aws_access_key_id, 
                                     aws_secret_access_key = aws_secret_access_key,
                                     bucket = bucket)
-    print(f'[Info] feature_enginerring method applied')
+    print(f'[Info] feature_engineering method applied')
 
     # Data preparation and data upload
     df3 = testing_class.data_preparation(df2)

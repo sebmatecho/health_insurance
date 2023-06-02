@@ -53,6 +53,12 @@ The data used for this project was obtained from Kaggle (description and further
 For training data, the target variable was given by
 - Response:  1 (Customer is interested), 0 (Customer is not interested)
 
+
+## Variable selection
+A random forest was used to select the most relevant features for this project. The 
+
+<img src="parameters/feature_importance.png" width="900" height="300" />
+
 ## Model
 The model used in this project is an XGBoost model that was fine-tuned using a Bayesian optimization approach. The model was trained on the historical data obtained from previous campaigns, and the output is a ranking score that ranks the customers by their probability of purchase. As the main problem is to sort the list of clients the metrics [Cumulative Gain Curve](http://mlwiki.org/index.php/Cumulative_Gain_Chart) and [Lift Curves](https://www.geeksforgeeks.org/understanding-gain-chart-and-lift-chart/) were used to assess model performance. 
 
@@ -75,7 +81,7 @@ Other considered models:
 
 ## Model Understanding
 
-Being mindful that every model is an approximation of reality instead of the reality itself, it should be stated that most interpretations we can make out of a model, would apply to used model, rather than the target features true nature (George Box would say: every model is wrong, but ... ). Still, is of value to listen what good models have to say about data and the observed relations between features as such suggestions, when used with data expertise, lead to great empirical understanding of data (... some are useful).
+Being mindful that every model is an approximation of reality instead of the reality itself, it should be stated that most interpretations we can make out of a model, would apply to the model only, rather than the target features true nature (George Box would say: every model is wrong, but ... ). Still, is of value to listen what good models have to say about data and the observed relations between features as such suggestions, when used with data expertise, lead to great empirical understanding of data (... some are useful).
 
 
 As a way to ease the interaction with the selected model while providing some intuition about the variables, the [`SHAP`](https://shap.readthedocs.io/en/latest/index.html) (SHapley Additive exPlanations) library was used. Such library is a great resource for further understanding the model's inner behaviour, opposing the black-box approach where users will are only left with a prediction with not much explanation. Such library computes [Shapley Values](https://en.wikipedia.org/wiki/Shapley_value) in a [Cooperative Game Theory](https://en.wikipedia.org/wiki/Cooperative_game_theory) framework to approximate the credit to be allocated to each feature. 
@@ -86,12 +92,14 @@ For the deployed model, variables *previously insured* and *vehicle damage*, are
 
 <img src="SHAP/plots.png" width="600" height="300" />
 
-This is also reflected by the Beeswarm plot, cleary showing two clusters for each of the *previously insured* and *vehicle damage* features. So, it seems that 
+This is also reflected by the Beeswarm plot, cleary showing two clusters for each of the *previously insured* and *vehicle damage* features. So, when previously insurance is low (no previously insured), SHAP value increases, this makes sense as people with no insurance are more likely to get one when offered. Also, when vehicle damage is high (customer got vehicle damaged inthe past), SHAP values are high. 
 
 <img src="SHAP/summary_plot.png" width="600" height="300" />
 
 
 #### Model Individual Interpration
+In case a particular profile is of interest, an independent analysis can be made. For example, the following plot corresponds to the profile of a 21 years old female with driving license in the region code 17, previously insured whose car is less than a year old with no previous car damage and current yearly premium of 33255 reached by sales channel coded as 160	and after being about two months with the company. 	
+
 <img src="SHAP/waterfall.png" width="600" height="300" />
 
 ## API
