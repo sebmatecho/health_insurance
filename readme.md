@@ -84,7 +84,7 @@ Other considered models:
 Being mindful that every model is an approximation of reality instead of the reality itself, it should be stated that most interpretations we can make out of a model, would apply to the model only, rather than the target features true nature (George Box would say: every model is wrong, but ... ). Still, is of value to listen what good models have to say about data and the observed relations between features as such suggestions, when used with data expertise, lead to great empirical understanding of data (... some are useful).
 
 
-As a way to ease the interaction with the selected model while providing some intuition about the variables, the [`SHAP`](https://shap.readthedocs.io/en/latest/index.html) (SHapley Additive exPlanations) library was used. Such library is a great resource for further understanding the model's inner behaviour, opposing the black-box approach where users will are only left with a prediction with not much explanation. Such library computes [Shapley Values](https://en.wikipedia.org/wiki/Shapley_value) in a [Cooperative Game Theory](https://en.wikipedia.org/wiki/Cooperative_game_theory) framework to approximate the credit to be allocated to each feature. 
+As a way to ease the interaction with the selected model while providing some intuition about the variables, the [`SHAP`](https://shap.readthedocs.io/en/latest/index.html) (SHapley Additive exPlanations) library was used. Such library (initially proposed [here(https://www.nature.com/articles/s42256-019-0138-9.epdf?shared_access_token=RCYPTVkiECUmc0CccSMgXtRgN0jAjWel9jnR3ZoTv0O81kV8DqPb2VXSseRmof0Pl8YSOZy4FHz5vMc3xsxcX6uT10EzEoWo7B-nZQAHJJvBYhQJTT1LnJmpsa48nlgUWrMkThFrEIvZstjQ7Xdc5g%3D%3D)]) is a great resource for further understanding the model's inner behaviour, opposing the black-box approach where users will are only left with a prediction with not much explanation. Such library computes [Shapley Values](https://en.wikipedia.org/wiki/Shapley_value) in a [Cooperative Game Theory](https://en.wikipedia.org/wiki/Cooperative_game_theory) framework to approximate the credit to be allocated to each feature. 
 
 #### Model Intuition
 
@@ -96,11 +96,11 @@ This is also reflected by the Beeswarm plot, cleary showing two clusters for eac
 
 <img src="SHAP/summary_plot.png" width="600" height="300" />
 
+#### Model Individual Impact
+To check such impacts, let's go back to google sheets app. Let's focus on the profile of a 33 years old male with driving license in the region code 28 whose car is less than a year old and with a current yearly premium of 33255. Let's explore the predictions given to such scenario variying the top three most important features. 
+<img src="img/profiles.png" width="600" height="300" />
 
-#### Model Individual Interpration
-In case a particular profile is of interest, an independent analysis can be made. For example, the following plot corresponds to the profile of a 21 years old female with driving license in the region code 17, previously insured whose car is less than a year old with no previous car damage and current yearly premium of 33255 reached by sales channel coded as 160	and after being about two months with the company. 	
-
-<img src="SHAP/waterfall.png" width="600" height="300" />
+In case that what's important is not necessarily the prediction by itself, but the rationale behind it further analysis can be made to explain model's suggestions depending of specific needs. 
 
 ## API
 The model was deployed through a FastAPI API that is hosted on Render. The API accepts a JSON file containing the variables for each customer and returns a JSON file containing the ranking score for each customer. The API was tested using Pytest. Tests are still to be included in the repository.

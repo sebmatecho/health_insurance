@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 import pandas as pd
 import numpy as np
 import itertools
+import math
 
 def statistical_summary(dataframe: pd.DataFrame):
     """ 
@@ -310,3 +311,128 @@ def scatterplot_matrix_numeric(dataframe:pd.DataFrame,
     plt.yticks(rotation = 45)
     
     return plt.show(); 
+
+def features_vs_binary_target(dataframe: pd.DataFrame,
+                              target_variable:str): 
+    """
+    Plot the relationship between each feature column and the binary target variable.
+
+    Parameters:
+        dataframe (pd.DataFrame): The input dataframe containing the feature and target columns.
+        target_variable (str): The name of the column containing the binary target variable.
+
+    Returns:
+        None
+    
+    Example usage: 
+        utils.features_vs_binary_target(dataframe = dataframe,
+                                        target_variable = 'response')
+
+    """
+
+    # target_variable is the column containing the binary target variable
+
+    num_features = len(dataframe.columns) - 1  # Subtract 1 to exclude the target column
+    num_rows = math.ceil(num_features / 3)  # Calculate the number of rows needed
+
+    fig, axes = plt.subplots(num_rows, 3, figsize=(15, 5 * num_rows))
+
+    row = 0
+    col = 0
+
+    # Iterate over each feature column
+    for i, feature_column in enumerate(dataframe.columns):
+        if feature_column == target_variable:
+            continue  # Skip the response column
+
+        ax = axes[row, col] if num_rows > 1 else axes[col]  # Get the current axis
+
+        if col == 2:
+            col = 0
+            row += 1
+        else:
+            col += 1
+
+        # Generate the appropriate plot based on the column type
+        if dataframe[feature_column].dtype == 'object':
+            sns.countplot(x=feature_column, hue=target_variable, data=dataframe, ax=ax)
+        else:
+            sns.histplot(data=dataframe, x=feature_column, hue=target_variable, multiple='stack', ax=ax)
+
+        ax.set_title(feature_column)
+
+    # Remove empty subplots
+    if num_features % 3 != 0:
+        for i in range(num_features % 3, 3):
+            fig.delaxes(axes[row, i] if num_rows > 1 else axes[i])
+
+    plt.tight_layout()
+    plt.show()
+
+
+def plot_feature_vs_target(dataframe: pd.DataFrame, 
+                           target_variable: str):
+    """
+    Plot the relationship between each feature variable and the target variable.
+
+    For variables with less than 50 unique values, create percentage bar plots.
+    For variables with more than 50 unique values, create overlapped histograms.
+
+    Parameters:
+        dataframe (pd.DataFrame): The input dataframe containing the feature and target variables.
+        target_variable (str): The name of the target variable column.
+
+    Returns:
+        None
+
+    """
+    num_features = len(dataframe.columns) - 1  # Subtract 1 to exclude the target column
+    num_rows = math.ceil(num_features / 3)  # Calculate the number of rows needed
+
+    fig, axes = plt.subplots(num_rows, 3, figsize=(15, 5 * num_rows))
+
+    row = 0
+    col = 0
+
+    # Iterate over each feature column
+    for i, feature_column in enumerate(dataframe.columns):
+        if feature_column == target_variable:
+            continue  # Skip the target variable column
+
+        ax = axes[row, col] if num_rows > 1 else axes[col]  # Get the current axis
+
+        if col == 2:
+            col = 0
+            row += 1
+        else:
+            col += 1
+
+        unique_values = dataframe[feature_column].nunique()
+
+        # Generate the appropriate plot based on the number of unique values
+        if unique_values <= 50:
+            sns.barplot(x = feature_column, 
+                        y = target_variable, 
+                        data = dataframe, 
+                        estimator = lambda x: len(x) / len(dataframe) * 100, 
+                        ax=ax)
+            ax.set_title(f"{feature_column} vs {target_variable} (Percentage Bar Plot)")
+            ax.set_ylabel("Percentage")
+            plt.legend(frameon=False, ncol=2)
+        else:
+            sns.histplot(data = dataframe, 
+                         x = feature_column, 
+                         hue = target_variable, 
+                         multiple = 'stack', 
+                         kde = True,
+                         ax = ax)
+            ax.set_title(f"{feature_column} vs {target_variable} (Overlapped Histogram)")
+            plt.legend(frameon=False, ncol=2)
+
+    # Remove empty subplots
+    if num_features % 3 != 0:
+        for i in range(num_features % 3, 3):
+            fig.delaxes(axes[row, i] if num_rows > 1 else axes[i])
+
+    plt.tight_layout()
+    plt.show()
