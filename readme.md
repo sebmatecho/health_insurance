@@ -98,7 +98,7 @@ This is also reflected by the Beeswarm plot, cleary showing two clusters for eac
 
 #### Model Individual Impact
 To check such impacts, let's go back to google sheets app. Let's focus on the profile of a 33 years old male with driving license in the region code 28 whose car is less than a year old and with a current yearly premium of 33255. Let's explore the predictions given to such scenario variying the top three most important features. 
-<img src="img/profiles.png" width="600" height="150" />
+<img src="img/profiles.png" width="700" height="150" />
 
 In case that what's important is not necessarily the prediction by itself, but the rationale behind it further analysis can be made to explain model's suggestions depending of specific needs. 
 
